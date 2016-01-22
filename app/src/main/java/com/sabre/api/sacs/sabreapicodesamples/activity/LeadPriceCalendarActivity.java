@@ -42,7 +42,7 @@ public class LeadPriceCalendarActivity implements Activity {
                 .pointOfSaleCountry("US")
                 .departureDate(departureDate)
                 .build();
-        call.setUrl(config.getRestProperty("endpoint") + "/v2/shop/flights/fares");
+        call.setUrl(config.getRestProperty("environment") + "/v2/shop/flights/fares");
         call.setRequest(request);
         BaseDomainResponse<LeadPriceCalendarResponse> leadPriceCalendar = call.doCall(LeadPriceCalendarResponse.class, context);
         context.putResult("LeadPriceCalendar", leadPriceCalendar);

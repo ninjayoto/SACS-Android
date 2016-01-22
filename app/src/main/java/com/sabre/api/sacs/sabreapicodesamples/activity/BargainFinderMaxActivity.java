@@ -41,7 +41,7 @@ public class BargainFinderMaxActivity implements Activity {
         call.setRequest(generateRequest(context.getResult("origin").toString(),
                 context.getResult("destination").toString(),
                 context.getResult("departureDate").toString()+"T00:00:00"));
-        call.setUrl(config.getRestProperty("endpoint") + "/v1.8.6/shop/flights?mode=live");
+        call.setUrl(config.getRestProperty("environment") + "/v1.8.6/shop/flights?mode=live");
         BaseDomainResponse<BfmV186Response> response = call.doCall(BfmV186Response.class, context);
         context.putResult("BargainFinderMaxResponse", response);
         return null;
