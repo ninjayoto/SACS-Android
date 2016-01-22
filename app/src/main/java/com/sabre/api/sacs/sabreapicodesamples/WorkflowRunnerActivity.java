@@ -58,7 +58,7 @@ public class WorkflowRunnerActivity extends AppCompatActivity {
         We highly encourage, such information is not being kept in the application package for safety reasons.
          */
 //        try {
-//            InputStream rawResource = getResources().openRawResource(R.raw.rest);
+//            InputStream rawResource = getResources().openRawResource(R.raw.SACSConfig);
 //            SacsConfiguration.restConfig.load(rawResource);
 //            System.out.println("The properties are now loaded");
 //            System.out.println("properties: " + SacsConfiguration.restConfig);
