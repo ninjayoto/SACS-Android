@@ -37,13 +37,13 @@ public class CredentialsBuilder {
         
         credentials.append(config.getRestProperty("formatVersion"))
             .append(":")
-            .append(config.getEncodedRestProperty("userId"))
+            .append(config.getRestProperty("userId"))
             .append(":")
-            .append(config.getEncodedRestProperty("group"))
+            .append(config.getRestProperty("group"))
             .append(":")
-            .append(config.getEncodedRestProperty("domain"));
+            .append(config.getRestProperty("domain"));
         
-        String secret = b64(config.getEncodedRestProperty("secret"));
+        String secret = b64(config.getRestProperty("secret"));
         return b64(b64(credentials.toString()) + ":" + secret);
     }
     
