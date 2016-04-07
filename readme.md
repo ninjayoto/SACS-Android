@@ -29,7 +29,7 @@ The workflow runs until the activity returns *null* as the next activity to be r
 ## Configuration
 Module to provide the configuration for the main app. It connects to the config service using the *authUrl* configured in the *gradle.properties* file and provides methods to obtain the Sabre’s REST webservices credentials.
 
-The configuration may also be read from the *SACSConfig.properties* file, that is placed in the app module’s res/raw folder. The code to read it is commented out in the *WorkflowRunnerActivity*’s *onCreate()* method.
+The configuration may also be read from the *SACSConfig.properties* file, that is placed in the app/src/main/res/raw folder. The code to read it is commented out in the *WorkflowRunnerActivity*’s *onCreate()* method.
 ## Workflow
 This module implements two design patterns – Workflow and Visitor. The former is used in the soap module for batching single calls to stateful flows which can be used to implement certain use cases. The state is being shared between activities using the SharedContext class instance. The latter is being used for error handling.
 
@@ -38,11 +38,11 @@ This module implements two design patterns – Workflow and Visitor. The former 
 - Visitor, Visitable – interfaces of the Visitor pattern used in error handling.
 
 ## Domain
-Classes copied from the Developer Essentials for Java project. The domain model used for REST calls is copied from the Developer Essentials for Java project. Some annotations like *@Generated* were removed, as they are not supported by the Android’s Jackson library.
+Classes copied from the Sabre API Code Samples for Java project. The domain model used for REST calls is copied from the Sabre API Code Samples for Java project. Some annotations like *@Generated* were removed, as they are not supported by the Android’s Jackson library.
 ## Rest
 A module responsible for executing calls to the Sabre REST webservices. It also utilizes the Workflow module and reads settings from the Configuration module.
 
-The domain model used for REST calls is copied from the Developer Essentials for Java project. Some annotations like *@Generated* were removed, as they are not supported by the Android’s Jackson library.
+The domain model used for REST calls is copied from the Sabre API Code Samples for Java project. Some annotations like *@Generated* were removed, as they are not supported by the Android’s Jackson library.
 
 The authentication takes place when any unauthenticated call attempts to take place. The TokenHolder class responsible for providing the authentication string checks, whether the token has been created and is not outdated. In any of those two cases, it runs the AuthenticationCall's doCall method, which reads credentials using Configuration module, encodes it in the way described on Sabre Developer Studio and (re)sets the token in the TokenHolder class.
 
@@ -51,3 +51,12 @@ In order to create a workflow, one should write classes implementing Activity in
 In case of POST call, the URL should be set and a request object. One runs the call using the doCall() method with a response class as the argument.
 
 In case of GET call, the URL should be set and a request object as well, but the URL should be just the base one for the service. The query part is being appended automatically based on the request object set. One can run the call in just the same way as in the POST case.
+
+# Support
+
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/sabre "Stack Overflow")
+- Need to report an issue/improvement? Use the built-in [issues] (https://github.com/SabreDevStudio/SACS-Android/issues) section
+- [Sabre Dev Studio](https://developer.sabre.com/)
+
+# Disclaimer of Warranty and Limitation of Liability
+This software and any compiled programs created using this software are furnished “as is” without warranty of any kind, including but not limited to the implied warranties of merchantability and fitness for a particular purpose. No oral or written information or advice given by Sabre, its agents or employees shall create a warranty or in any way increase the scope of this warranty, and you may not rely on any such information or advice. Sabre does not warrant, guarantee, or make any representations regarding the use, or the results of the use, of this software, compiled programs created using this software, or written materials in terms of correctness, accuracy, reliability, currentness, or otherwise. The entire risk as to the results and performance of this software and any compiled applications created using this software is assumed by you. Neither Sabre nor anyone else who has been involved in the creation, production or delivery of this software shall be liable for any direct, indirect, consequential, or incidental damages (including damages for loss of business profits, business interruption, loss of business information, and the like) arising out of the use of or inability to use such product even if Sabre has been advised of the possibility of such damages.
