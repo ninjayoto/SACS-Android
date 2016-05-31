@@ -110,7 +110,7 @@ public class WorkflowRunnerActivity extends AppCompatActivity {
         //The results should not be public static.
         //It is done, as at the generation time, all the domain classes should be marked as serializable
         //in order to pass them to the activity with the Intent's putExtra() method.
-        //The domain classes were copied from the DES Java project, where the Serializable marker
+        //The domain classes were copied from the SACS Java project, where the Serializable marker
         //was not required.
         ShowResultsActivity.results = context;
         startActivity(intent);
